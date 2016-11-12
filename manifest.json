@@ -1,3 +1,4 @@
 { "manifest": [
+{ "id": "runner01", "src": "img/runner01.png" },
 { "id": "title", "src": "img/title.png" }
 ] }

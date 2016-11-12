@@ -3,11 +3,17 @@ var ACTUAL_WIDTH = 1280;
 var ACTUAL_HEIGHT = 720;
 var ASPECT_RATIO = 16/9;
 
+var currentScreen;
+var SCREEN_LOADING = 0;
+var SCREEN_TITLE = 1;
+var SCREEN_INSTRUCTIONS = 2;
+var SCREEN_GAME = 3;
+var SCREEN_WIN = 4;
+
 var keyPressed = 0;
 
 var queue;
 var lastTickTime;
-var gameLoaded = false;
 var loadText;
 
 window.addEventListener('resize', resize, false);
@@ -32,6 +38,7 @@ function init()
 
 function showLoadingScreen()
 {
+	currentScreen = SCREEN_LOADING;
 	loadText = new createjs.Text("Loading: 0%", "24px Arial", "#ffffff");
 	loadText.textAlign = "center";
 	loadText.x = ACTUAL_WIDTH/2;
@@ -42,27 +49,29 @@ function showLoadingScreen()
 function loadingComplete()
 {
 	stage.removeChild(loadText);
-	gameLoaded = true;
 
-	stage.addChild(new createjs.Bitmap(queue.getResult("title")));
+	initTitle(queue.getResult("title"));
+	initGame();
+
+	showTitle();
 }
 
-var spoke; // DELETE ME
 function tick()
 {
 	var timeSinceLastTick = createjs.Ticker.getTime() - lastTickTime;
 	lastTickTime = createjs.Ticker.getTime();
 
-	if (!gameLoaded)
+	if (currentScreen == SCREEN_LOADING)
 	{
 		loadText.text = "Loading: "+Math.floor(queue.progress*100)+"%";
 	}
-
-	// DELETE ME
-	if (lastTickTime >= 1000 && !spoke)
+	if (currentScreen == SCREEN_TITLE)
 	{
-		responsiveVoice.speak("Welcome to Oppression Olympics 2K sixteen!", "UK English Male", {rate: 1.2});
-		spoke = true;
+		updateTitle(timeSinceLastTick);
+	}
+	if (currentScreen == SCREEN_GAME)
+	{
+		updateGame(timeSinceLastTick);
 	}
 	
 	keyPressed = 0;
