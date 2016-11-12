@@ -28,7 +28,7 @@ function init()
 	
 	showLoadingScreen();
 	
-	this.document.onkeydown = keydown;
+	this.document.onkeyup = keyup;
 	
 	queue = new createjs.LoadQueue(true);
 	queue.installPlugin(createjs.Sound);
@@ -51,7 +51,7 @@ function loadingComplete()
 	stage.removeChild(loadText);
 
 	initTitle(queue.getResult("title"));
-	initGame();
+	initGame(queue.getResult("runner01"));
 
 	showTitle();
 }
@@ -79,7 +79,7 @@ function tick()
 	stage.update();
 }
 
-function keydown(event)
+function keyup(event)
 {
     keyPressed = event.keyCode;
 }
