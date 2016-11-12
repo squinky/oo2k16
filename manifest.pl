@@ -4,10 +4,10 @@ use strict;
 use File::Find::Rule;
 use File::Basename;
 
-my @dirs = ("img");
+my @dirs = ("img", "sfx");
 
 my @files = File::Find::Rule->file()
-							->name('*.png')
+							->name('*.png', '*.ogg')
                             ->in(@dirs);
                             
 my $counter;

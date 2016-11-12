@@ -51,7 +51,8 @@ function loadingComplete()
 	stage.removeChild(loadText);
 
 	initTitle(queue.getResult("title"));
-	initGame(queue.getResult("runner01"));
+	initGame(queue.getResult("track"), queue.getResult("theatre"), queue.getResult("oldwhitedudethumbsup"),
+		queue.getResult("runner01"), queue.getResult("oneTrack"));
 
 	showTitle();
 }

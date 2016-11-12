@@ -1,4 +1,11 @@
 { "manifest": [
+{ "id": "oldwhitedudethumbsup", "src": "img/oldwhitedudethumbsup.png" },
+{ "id": "oneTrack", "src": "img/oneTrack.png" },
 { "id": "runner01", "src": "img/runner01.png" },
-{ "id": "title", "src": "img/title.png" }
+{ "id": "theatre", "src": "img/theatre.png" },
+{ "id": "title", "src": "img/title.png" },
+{ "id": "track", "src": "img/track.png" },
+{ "id": "mildcrowdreaction", "src": "sfx/mildcrowdreaction.ogg" },
+{ "id": "roaringcrowd", "src": "sfx/roaringcrowd.ogg" },
+{ "id": "thunderousapplause", "src": "sfx/thunderousapplause.ogg" }
 ] }
