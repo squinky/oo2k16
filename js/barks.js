@@ -21,7 +21,7 @@ function bark()
 		for (var i = 0; i < 10; i++) barks.sort(function(a, b){return 0.5 - Math.random()});
 	}
 
-	responsiveVoice.speak(barks[currentBark], "UK English Male", {rate: 1.2});
+	responsiveVoice.speak(barks[currentBark], "UK English Male", { volume: 1 });
 
 	currentBark++;
 	if (currentBark >= barks.length) currentBark = 0;
