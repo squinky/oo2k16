@@ -2,4 +2,4 @@
 
 a game by the International Oppression Olympic Committee
 
-(Dietrich Squinkifer, Jess Marcotte, and Sarah Fay Girard)
+(Jessica Rose Marcotte, Sarah Fay Girard, and Dietrich Squinkifer)

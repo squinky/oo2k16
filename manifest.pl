@@ -7,7 +7,7 @@ use File::Basename;
 my @dirs = ("img", "sfx");
 
 my @files = File::Find::Rule->file()
-							->name('*.png', '*.ogg')
+							->name('*.png', '*.ogg', '*.json')
                             ->in(@dirs);
                             
 my $counter;

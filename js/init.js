@@ -16,6 +16,10 @@ var queue;
 var lastTickTime;
 var loadText;
 
+var foreground;
+
+var ARCADE_MODE = false;
+
 window.addEventListener('resize', resize, false);
 
 function init()
@@ -39,10 +43,10 @@ function init()
 function showLoadingScreen()
 {
 	currentScreen = SCREEN_LOADING;
-	loadText = new createjs.Text("Loading: 0%", "24px Arial", "#ffffff");
+	loadText = new createjs.Text("LOADING: 0%", "48px Stardos Stencil", "#ffffff");
 	loadText.textAlign = "center";
 	loadText.x = ACTUAL_WIDTH/2;
-	loadText.y = ACTUAL_HEIGHT/2 - 12;
+	loadText.y = ACTUAL_HEIGHT/2 - 24;
 	stage.addChild(loadText);
 }
 
@@ -50,9 +54,18 @@ function loadingComplete()
 {
 	stage.removeChild(loadText);
 
-	initTitle(queue.getResult("title"));
-	initGame(queue.getResult("track"), queue.getResult("theatre"), queue.getResult("oldwhitedudethumbsup"),
-		queue.getResult("runner01"), queue.getResult("oneTrack"));
+	foreground = new createjs.Bitmap(queue.getResult("theatre"));
+
+	initTitle(queue.getResult("titleScreen"));
+	initInstructions();
+	initGame(queue.getResult("track"), queue.getResult("oldwhitedudethumbsup"), queue.getResult("countdown"),
+		[ queue.getResult("runner02"), queue.getResult("runner03"), queue.getResult("runner04"),
+			queue.getResult("runner05"), queue.getResult("runner06"), queue.getResult("runner07"),
+			queue.getResult("runner08"), queue.getResult("runner09") ],
+		[ queue.getResult("track01"), queue.getResult("track02"), queue.getResult("track03"),
+			queue.getResult("track04"), queue.getResult("track05"), queue.getResult("track06"),
+			queue.getResult("track07"), queue.getResult("track08") ]);
+	initWin(queue.getResult("rainingmoney"));
 
 	showTitle();
 }
@@ -64,15 +77,23 @@ function tick()
 
 	if (currentScreen == SCREEN_LOADING)
 	{
-		loadText.text = "Loading: "+Math.floor(queue.progress*100)+"%";
+		loadText.text = "LOADING: "+Math.floor(queue.progress*100)+"%";
 	}
 	if (currentScreen == SCREEN_TITLE)
 	{
 		updateTitle(timeSinceLastTick);
 	}
+	if (currentScreen == SCREEN_INSTRUCTIONS)
+	{
+		updateInstructions(timeSinceLastTick);
+	}
 	if (currentScreen == SCREEN_GAME)
 	{
 		updateGame(timeSinceLastTick);
+	}
+	if (currentScreen == SCREEN_WIN)
+	{
+		updateWin(timeSinceLastTick);
 	}
 	
 	keyPressed = 0;

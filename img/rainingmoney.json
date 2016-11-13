@@ -1,0 +1,25 @@
+{
+
+"images": [
+    "img/giphymoneyraincloud.png"
+],
+
+"frames": [
+    [1, 1, 245, 308, 0, -125, -42],
+    [248, 1, 238, 310, 0, -128, -40],
+    [1, 311, 242, 311, 0, -129, -39],
+    [1, 624, 240, 314, 0, -127, -36],
+    [245, 313, 240, 309, 0, -127, -41],
+    [243, 624, 239, 312, 0, -127, -38]
+],
+
+"animations": {
+    "anim": { "frames": [0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5] }
+},
+
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:f94f752bc85a6003b9306529e221931a:fd1aeaacd6d9662ea89c5d0d684c6b7d:53d88579b3f18fd3dfcc0573d712efe6$",
+        "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+]
+
+}
