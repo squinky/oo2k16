@@ -12,7 +12,7 @@ var players;
 
 var WIN_SCORE = 200;
 
-var gameBG, kyriarch, lights, runners;
+var gameBG, kyriarch, lights, runners, bottomBox;
 
 var SPRITE_INITIAL_X = 25;
 var SPRITE_INITIAL_Y = 125;
@@ -55,6 +55,9 @@ function initGame(bg, kyr, li, r, tracks)
 
 		players.push({ "sprite": null, "track": track, "text": null, "keys": null, "score": 0 });
 	}
+
+	bottomBox = new createjs.Shape();
+	bottomBox.graphics.beginFill("#000000").drawRect(0, ACTUAL_HEIGHT, ACTUAL_WIDTH, 200);
 }
 
 function startGame()
@@ -100,13 +103,14 @@ function startGame()
 		stage.addChild(players[i].sprite);
 	}
 
+	stage.addChild(bottomBox);
 	stage.addChild(kyriarch);
 	stage.addChild(foreground);
 	stage.addChild(lights);
 
 	if (music) music.paused = false;
-	else music = createjs.Sound.play("jockjams", { loop: -1, volume: 0.1 });
-	roaringCrowdAudio = createjs.Sound.play("roaringcrowd", { loop: -1, volume: 0.1 });
+	else music = createjs.Sound.play("jockjams", { loop: -1, volume: 0.05 });
+	roaringCrowdAudio = createjs.Sound.play("roaringcrowd", { loop: -1, volume: 0.05 });
 	createjs.Sound.play("mariokart", { volume: 0.5 });
 
 	gameTimeElapsed = 0;
