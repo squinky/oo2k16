@@ -1,12 +1,12 @@
 var issues = [
-	{ "name": "racism", "keys": [71, 66], "keyLetters": ['G', 'B'] },
-	{ "name": "sexism", "keys": [78, 67], "keyLetters": ['N', 'C']  },
-	{ "name": "classism", "keys": [77, 68], "keyLetters": ['M', 'D']  },
-	{ "name": "ableism", "keys": [83, 76], "keyLetters": ['S', 'L']  },
-	{ "name": "homophobia", "keys": [81, 70], "keyLetters": ['Q', 'F']  },
-	{ "name": "transphobia", "keys": [80, 86], "keyLetters": ['P', 'V']  },
-	{ "name": "islamophobia", "keys": [75, 72], "keyLetters": ['K', 'H']  },
-	{ "name": "xenophobia", "keys": [65, 69], "keyLetters": ['A', 'E']  } ];
+	{ "name": "racism", "keys": [82], "keyLetters": ['R'] },
+	{ "name": "sexism", "keys": [83], "keyLetters": ['S']  },
+	{ "name": "classism", "keys": [67], "keyLetters": ['C']  },
+	{ "name": "ableism", "keys": [65], "keyLetters": ['A']  },
+	{ "name": "homophobia", "keys": [72], "keyLetters": ['H']  },
+	{ "name": "transphobia", "keys": [84], "keyLetters": ['T']  },
+	{ "name": "islamophobia", "keys": [73], "keyLetters": ['I']  },
+	{ "name": "xenophobia", "keys": [88], "keyLetters": ['X']  } ];
 
 var players;
 
@@ -90,7 +90,8 @@ function startGame()
 
 		if (!ARCADE_MODE)
 		{
-			var keys = "["+issues[i].keyLetters[0]+"] + ["+issues[i].keyLetters[1]+"]";
+			//var keys = "["+issues[i].keyLetters[0]+"] + ["+issues[i].keyLetters[1]+"]";
+			var keys = "["+issues[i].keyLetters[0]+"]";
 			players[i].keys = new createjs.Text(keys, "24px Stardos Stencil", "#ffffff");
 			players[i].keys.x = KEYS_INITIAL_X;
 			players[i].keys.y = TEXT_INITIAL_Y + SPRITE_Y_SPACING*i;
