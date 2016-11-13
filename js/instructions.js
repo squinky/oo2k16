@@ -35,6 +35,13 @@ function updateInstructions(timeSinceLastTick)
 	instructionsTimeElapsed += timeSinceLastTick;
 	if (instructionsTimeElapsed < INSTRUCTIONS_DELAY) return;
 
+	// go back to the title screen if idle for 1 minute
+	if (instructionsTimeElapsed > 60000)
+	{
+		hideInstructions();
+		showTitle();
+	}
+
 	if (keyPressed)
 	{
 		hideInstructions();

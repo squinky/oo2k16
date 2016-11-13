@@ -155,8 +155,8 @@ function updateGame(timeSinceLastTick)
 
 	if (!responsiveVoice.isPlaying()) bark();
 
-	// press 0 for nobody to win
-	if (keyPressed == 48)
+	// press 0 for nobody to win, or wait for 5 minutes
+	if (keyPressed == 48 || gameTimeElapsed > 300000)
 	{
 		endGame();
 		showWin("nothing");
